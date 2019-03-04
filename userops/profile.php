@@ -2,6 +2,7 @@
 require "../components/navbar.php";
 require "../components/errorfunc.php";
 require "../dbconfig/conn.php";
+require "../components/session.php";
 
 $query = "select * from `googleloginusers` where username = ?";
 $stmt = $conn->prepare($query);

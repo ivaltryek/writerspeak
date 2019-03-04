@@ -45,18 +45,29 @@ require "../components/banner.php";
     //print_r($_SESSION);
     //print_r($_GET);
     if(isset($_GET['submit']) && isset($_SESSION['email'])){
-    $query = "update `googleloginusers` set `username` = ? where `email` = ? ";
-    $stmt = $conn->prepare($query);
-    $stmt->execute(array($_GET['username'],$_SESSION['email']));
-    $result = $stmt->rowCount();
-    echo $result;
-        if($stmt->rowCount()>0){
-            $_SESSION['user'] = $_GET['username'];
-            header("Location:../index.php");
-            exit();
-        }else{
-            header("Location:../error/index.html");
-            exit();
-        }
+    $select_query = "select * from `googleloginusers` where `username` = ?";
+    $stmt2=$conn->prepare($select_query);
+    $stmt2->execute(array($_GET['username']));
+
+      if($stmt2->rowCount()>0){
+          echo '<script language="javascript">';
+          echo 'alert("Username is already exists, try with diffrent username.! Thank you.")';
+          echo '</script>';
+          exit();
+      }else{
+            $query = "update `googleloginusers` set `username` = ? where `email` = ? ";
+            $stmt = $conn->prepare($query);
+            $stmt->execute(array($_GET['username'],$_SESSION['email']));
+            $result = $stmt->rowCount();
+            echo $result;
+            if($stmt->rowCount()>0){
+                $_SESSION['user'] = $_GET['username'];
+                header("Location:../index.php");
+                exit();
+            }else{
+                header("Location:../error/index.html");
+                exit();
+            }
+      }
     }
 ?>
