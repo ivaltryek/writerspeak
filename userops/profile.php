@@ -2,7 +2,7 @@
 require "../components/navbar.php";
 require "../components/errorfunc.php";
 require "../dbconfig/conn.php";
-require "../components/session.php";
+@require "../components/session.php";
 
 $query = "select * from `googleloginusers` where username = ?";
 $stmt = $conn->prepare($query);
@@ -14,6 +14,8 @@ foreach($data as $row){
     $firstname = $row['firstname'];
     $lastname = $row['lastname'];
     $profilepic = $row['profilepic'];
+    $about_me = $row['about_me'];
+    $more_content = $row['more_content'];
 }
 ?>
 
@@ -233,11 +235,12 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
-				<!-- SIDEBAR BUTTONS -->
-				<!-- <div class="profile-userbuttons">
-					<button type="button" class="btn btn-success btn-sm">Follow</button>
-					<button type="button" class="btn btn-danger btn-sm">Message</button>
-				</div> -->
+        <!-- SIDEBAR BUTTONS -->
+        <form action = "profile.php" method="get">
+				<div class="profile-userbuttons">
+					<button type="button" name="edit_profile" onclick="window.open('../googlelogin/setupprofile.php?msg=profile','_top','height=70','width=70')" class="btn btn-success btn-sm">Edit Profile</button>
+        </div>
+        </form>
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
 				<!-- <div class="profile-usermenu">
@@ -271,7 +274,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
                                                 <div class="row list-separated profile-stat">
                                                     <div class="">
                                                         <div class="uppercase profile-stat-title"> 37 </div>
-                                                        <div class="uppercase profile-stat-text"> Projects </div>
+                                                        <div class="uppercase profile-stat-text"> Posts </div>
                                                     </div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                     <!-- <div class="">
                                                         <div class="uppercase profile-stat-title"> 51 </div>
@@ -285,9 +288,9 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
                                                 <!-- END STAT -->
                                                  <div>
                                                     <h4 class="profile-desc-title">About <?php echo $firstname  ;?></h4>
-                                                    <span class="profile-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
+                                                    <span class="profile-desc-text"><?php echo  $about_me?> </span>
                                                     <div class="margin-top-20 profile-desc-link">
-                                                        <i class="fa fa-globe"></i>
+                                                        <!-- <i class="fa fa-globe"></i>
                                                         <a href="https://www.apollowebstudio.com">apollowebstudio.com</a>
                                                     </div>
                                                     <div class="margin-top-20 profile-desc-link">
@@ -296,7 +299,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
                                                     </div>
                                                     <div class="margin-top-20 profile-desc-link">
                                                         <i class="fa fa-facebook"></i>
-                                                        <a href="https://www.facebook.com/">JasonDavisFL</a>
+                                                        <a href="https://www.facebook.com/">JasonDavisFL</a> -->
  </div></div></div>
 
 
@@ -305,7 +308,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 		</div>
 		<div class="col-md-9">
             <div class="profile-content">
-			   Some user related content goes here...
+              <?php echo $more_content ?>
             </div>
 		</div>
 	</div>
