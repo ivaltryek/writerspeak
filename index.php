@@ -131,7 +131,7 @@ require "./dbconfig/conn.php";
     </ul>
     <li class="form-inline my-2 my-lg-0 nav-item dropdown">
     <form class="form-inline my-2 my-lg-0"  method="post">
-      <input class="form-control mr-sm-2" name="search_query" type="search" placeholder="Search Writer's Peak" aria-label="Search">
+      <input class="form-control mr-sm-2" name="search_query" autofocus required title="Query with @ to find Writers" type="search" placeholder="Search Writer's Peak" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Search</button>
       <?php
       if(isset($_POST['search']) && isset($_POST['search_query'])){
