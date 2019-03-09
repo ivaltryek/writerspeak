@@ -1,5 +1,5 @@
 <?php
-require "../components/navbar.php";
+require "../components/customnav.php";
 require "../components/errorfunc.php";
 require "../dbconfig/conn.php";
 @require "../components/session.php";
@@ -222,7 +222,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<img src="<?php echo $profilepic ?>"  class="img-responsive" alt="">
+					<img src="<?php echo $_SESSION['picture'] ?>"  class="img-responsive" alt="">
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
@@ -268,13 +268,18 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 					</ul>
 				</div> -->
 				<!-- END MENU -->
+          <?php
+              $post_query = "select * from `lyrics` where author = '".$_SESSION['user']."' ";
+              $data = $conn->query($post_query);
+              $posts = $data->rowCount();
 
+          ?>
            <div class="portlet light bordered">
                                                 <!-- STAT -->
                                                 <div class="row list-separated profile-stat">
                                                     <div class="">
-                                                        <div class="uppercase profile-stat-title"> 37 </div>
-                                                        <div class="uppercase profile-stat-text"> Posts </div>
+                                                        <div class="uppercase profile-stat-title"> <?php echo $posts;?> </div>
+                                                        <div class="uppercase profile-stat-text">Posts </div>
                                                     </div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                     <!-- <div class="">
                                                         <div class="uppercase profile-stat-title"> 51 </div>
