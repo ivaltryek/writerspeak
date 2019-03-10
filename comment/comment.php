@@ -116,11 +116,12 @@ require "../components/errorfunc.php";
 ?>
         <form class="form-inline" method="get" role="form" action ="comment.php">
             <div class="form-group">
-                <input class="form-control" name="comment" type="text" placeholder="Your comments" />
+                <input class="form-control" name="comment" type="text" placeholder="Your comments"  required/>
             </div>
             <div class="form-group">
-                <button class="btn btn-default" name="sub" >Add</button>
-                <a href="../index.php">Back To Home?</a>
+                <button class="btn btn-primary" name="sub" >Add</button>
+                <a href="../index.php">Back To Home?</a> &nbsp; &nbsp; <a href="../lyrics/showlyrics.php?song=<?php echo
+                $_COOKIE['title_showlyrics'] ?>">Back to lyrics?</a>
             </div>
 
         </form>

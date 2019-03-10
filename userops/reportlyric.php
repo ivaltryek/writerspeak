@@ -17,21 +17,23 @@
     <title>WritersPeak|Report</title>
     <link rel="stylesheet" href="../boot/css/bootstrap.min.css">
 </head>
-<body><br>
+<body><br><?php
+     echo "<script>document.title='WritersPeak|Report';</script>";
+ ?>
     <form method="post" action="reportlyric.php">
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
                     <div class = "form-group">
                         <label for="reported_by">Reported By:</label>
-                        <input type="text" class="form-control" name="reportedby"  value="<?php echo $_SESSION['user'] ?>" id="reported_by" >
+                        <input type="text" class="form-control" name="reportedby"  value="<?php echo $_SESSION['user'] ?>" id="reported_by" required>
                     </div>
                     <div class="form-group">
                         <label for="reported_song">Reported Song:</label>
-                        <input type="text" id="reported_song" name="reportedsong" value = "<?php echo $_GET['report']?>" class="form-control"  />
+                        <input type="text" id="reported_song" name="reportedsong" value = "<?php echo $_GET['report']?>" class="form-control"  required/>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="reason" rows="10" cols="45" placeholder="Reasons like Irrelevent, CopyRight Infringement, off the topic.... Write the reason"></textarea>
+                        <textarea class="form-control" name="reason" rows="10" required cols="45" placeholder="Reasons like Irrelevent, CopyRight Infringement, off the topic.... Write the reason"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" name="commit" class="btn btn-danger">Report</button>

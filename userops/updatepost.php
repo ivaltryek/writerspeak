@@ -10,7 +10,14 @@
 
             require "../components/banner.php";
             require "../components/session.php";
+            require "../dbconfig/conn.php";
 
+            $query = "select * from `lyrics` where `trimmedtitle` = '".$_GET['song']."' ";
+            $data = $conn->query($query);
+            foreach($data as $d){
+                $title = $d['title'];
+                $lyrics = $d['lyrics'];
+            }
         ?>
         <center>
         <div class="alert alert-success" role="alert">
@@ -35,10 +42,10 @@
                  <label class="form-check-label" for="exampleCheck1">Has an Album Art?</label>
             </div>
             <div class="form-group">
-             <input type = "text" style="font-weight:bold;" name="title" class="form-control" placeholder="Song Title" required/>
+             <input type = "text" style="font-weight:bold;" name="title" class="form-control" value="<?php echo $title; ?>" required/>
             </div>
             <div class="form-group">
-                <textarea class="form-control" name="lyrics" rows="45" placeholder="your lyrics goes here..." cols="200" required></textarea>
+                <textarea class="form-control" name="lyrics" rows="45"  cols="200" required><?php echo $lyrics ?></textarea>
             </div>
             <div class="form-group">
                 <input type = "submit" name="submit" value="Post" class="btn btn-success form-control"/>
@@ -52,35 +59,3 @@
         <!-- </div> -->
     </body>
 </html>
-
-<?php
-require "../dbconfig/conn.php";
-require "../components/errorfunc.php";
-$trimmedtitle = "";
-    if(isset($_POST['submit'])){
-        //$username = $_POST['username'];
-        $title = $_POST['title'];
-       // echo $title."t";
-        $lyrics = $_POST['lyrics'];
-        @$trimmedtitle = preg_replace("/[^a-zA-Z]/", "", $title);
-        $cookie_name = "title";
-        $cookie_value = $trimmedtitle;
-        setcookie($cookie_name,$cookie_value,time() + (86400 * 30), "/");
-        //$_SESSION['title_edited'] = @$trimmedtitle;
-        //echo $trimmedtitle;
-        $today = date("F j, Y, g:i a");
-        $query = "insert into `lyrics`(`id`,`author`,`album_art`,`title`,`lyrics`,`trimmedtitle`,`published`) values(DEFAULT,?,DEFAULT,?,?,?,?)";
-        $stmt = $conn->prepare($query);
-        $stmt->execute(array($_SESSION['user'],$title,$lyrics,$trimmedtitle,$today));
-
-        if(isset($_POST['is_album_art'])){
-
-            header("Location:setupalbumart.php");
-        }else{
-            header("Location:../index.php");
-        }
-
-    }
-
-
-?>

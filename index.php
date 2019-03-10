@@ -161,7 +161,7 @@ require "./dbconfig/conn.php";
                  echo $_SESSION['user']; echo '</a>';
                echo ' <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="./userops/profile.php">Profile</a>
-                  <a class="dropdown-item" href="#">Manage Account</a>
+                  <a class="dropdown-item" href="./userops/check_master.php">Manage Account</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="./googlelogin/logout.php">Signout?</a>
                 </div>';

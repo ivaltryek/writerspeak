@@ -279,7 +279,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
                                                 <div class="row list-separated profile-stat">
                                                     <div class="">
                                                         <div class="uppercase profile-stat-title"> <?php echo $posts;?> </div>
-                                                        <div class="uppercase profile-stat-text">Posts </div>
+                                                        <div class="uppercase profile-stat-text"><a href="./viewposts.php">Posts</a> </div>
                                                     </div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                                     <!-- <div class="">
                                                         <div class="uppercase profile-stat-title"> 51 </div>

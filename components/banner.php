@@ -38,7 +38,7 @@
     <div id = "lol">
     <nav class="navbar navbar-default bg-danger navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" style="color:white; font-size:39px;" href="#">Writer's Peak</a>
+            <a class="navbar-brand" style="color:white; font-size:39px;" href="../index.php">Writer's Peak</a>
         </div>
     </nav>
     </div>

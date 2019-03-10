@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../boot/css/bootstrap.min.css">
 </head>
 <body>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid ">
   <div class="container">
     <h1 class="display-4">You've searched for... <?php echo $_GET['q'] ?></h1>
     <p class="lead">All results has been calculated on the requested query.</p>
