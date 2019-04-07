@@ -34,6 +34,18 @@ require "../components/session.php";
         $title = $d['title'];
     }
  ?>
+ <?php
+
+    $stats_getter = "select `likes`,`dislike` from `lyrics` where `trimmedtitle` = ?";
+    $stats_getter_prepare = $conn->prepare($stats_getter);
+    $stats_getter_prepare->execute(array($_GET['song']));
+    $stats_getter_array = $stats_getter_prepare->fetchAll(PDO::FETCH_ASSOC);
+    foreach($stats_getter_array as $sg){
+      $likes = $sg['likes'];
+      $dislikes = $sg['dislike'];
+    }
+
+ ?>
  <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4"> Post: <?php echo $title ?></h1>
@@ -41,6 +53,20 @@ require "../components/session.php";
     <a class="text-danger" href="./deletepost.php?song=<?php echo $_GET['song'];?>">Delete?</a> &nbsp; &nbsp;
     <a class = "text-primary" href="./updatepost.php?song=<?php echo $_GET['song'];?>">Update?</a> &nbsp; &nbsp;
     <span class="glyphicon">&#x270f;</span><?php echo $published ?>
+   &nbsp; <i class="fas fa-thumbs-up"></i> <?php
+      if($likes < 0){
+        echo '0';
+      }else{
+        echo $likes;
+      }
+    ?>
+     &nbsp; <i class="fas fa-thumbs-down"></i> <?php
+      if($dislikes < 0){
+        echo '0';
+      }else{
+        echo $dislikes;
+      }
+    ?>
   </div></div><br><hr>
 <div class = "container">
     <div class = "row">

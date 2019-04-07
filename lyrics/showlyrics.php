@@ -3,6 +3,7 @@ require "../dbconfig/conn.php";
 require "../components/errorfunc.php";
 require "../components/banner.php";
 require "../components/session.php";
+require "../components/customnav.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,8 +142,9 @@ if (isset($_GET['song'])) {
         $perform = $conn->prepare($get_likes);
         $perform->execute(array($_GET['song']));
         $data = $perform->fetchAll(PDO::FETCH_ASSOC);
-        foreach($data as $d){
+        foreach ($data as $d) {
             $total_likes = $d['likes'];
+            $total_dislikes = $d['dislike'];
         }
         ?>
         <span class="glyphicon glyphicon-chevron-up"></span>
@@ -151,15 +153,23 @@ if (isset($_GET['song'])) {
         <u><a style="padding-left:150px" class="text-dark" href="../comment/comment.php"><i class="fas fa-comments"></i> Comment</a></u><br>
         <span style="font-size:18px; padding-left:20px"><i class="far fa-eye"></i> <?php echo $views ?></span>
         <?php
-            $url = "execute.php?like=like&lyric=".$_GET['song'];
-            echo '<a href = "'.$url.'" style="padding-left:25px;padding-top:40px">
-                 <i class="fas fa-thumbs-up"></i></a>';?>&nbsp;<span text = "text-dark"><?php echo $total_likes?></span>
-            <?php
-            $url2 = "execute.php?dislike=dislike&lyric=".$_GET['song'];
-            echo '<a href = "'.$url2.'" style="padding-left:20px;padding-top:40px">
-                 <i class="fas fa-thumbs-down"></i></a>';
+        $url = "execute.php?like=like&lyric=" . $_GET['song'];
+        echo '<a href = "' . $url . '" style="padding-left:25px;padding-top:40px">
+                 <i class="fas fa-thumbs-up"></i></a>'; ?>&nbsp;<span text="text-dark"><?php
+                 if($total_likes < 0){
+                    echo '0';}else{echo $total_likes;}
+                 ?></span>
+        <?php
+        $url2 = "executedislike.php?dislike=dislike&lyric=" . $_GET['song'];
+        echo '<a href = "' . $url2 . '" style="padding-left:25px;padding-top:40px">
+                 <i class="fas fa-thumbs-down"></i></a>'; ?>&nbsp;<span text="text-dark"><?php
+                 if($total_dislikes < 0){
+                     echo '0';
+                 }else{
+                     echo $total_dislikes;
+                 }
+                 ?></span>
 
-        ?>
 
     </div>
     <br>
