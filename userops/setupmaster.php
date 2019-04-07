@@ -30,7 +30,7 @@ require "../components/session.php";
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Master Password Creation</h1>
-    <p class="lead">Use of master password is to deactivate your account.</p>
+    <p class="lead">Use of master password is to deactivate your account and to update sensetive data</p>
   </div>
   <form method="post">
     <div class="container">

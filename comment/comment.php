@@ -104,7 +104,7 @@ require "../components/errorfunc.php";
         <ul class="commentList">
             <li>
                 <div class="commenterImage">
-                  <img src="'.$_SESSION['picture'].'" />
+                  <img src="'.$_SESSION['picture'].'" alt="!"/>
                 </div>
                 <div class="commentText">
                     <p class="">'.$row['comment'].'</p> <span class="date sub-text">'.$row['published'].'</span>

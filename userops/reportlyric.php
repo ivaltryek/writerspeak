@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="../boot/css/bootstrap.min.css">
 </head>
 <body><br><?php
+        if(!loggedin()){
+            header("Location:../index.php");
+        }
      echo "<script>document.title='WritersPeak|Report';</script>";
  ?>
     <form method="post" action="reportlyric.php">

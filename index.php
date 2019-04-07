@@ -21,14 +21,14 @@ require "./dbconfig/conn.php";
             width: 100%;
             height: 500px;
             margin: 0;
-            border: 3px solid #000;
+            border: 3px solid #b92e34;
             display: inline-block;
             background-size: cover;
             background-position: center center;
             transition: all 300ms ease-out;
           }
           #posts .post h2 {
-            color:#fff;
+            color:#FFFF00;
             position: absolute;
             bottom: 80px;
             margin: 0;
@@ -41,7 +41,7 @@ require "./dbconfig/conn.php";
             z-index: 1000;
           }
           #posts .post p {
-            color:#fff;
+            color:#ADFF2F;
             position: absolute;
             bottom: 40px;
             margin: 0;
@@ -98,7 +98,7 @@ require "./dbconfig/conn.php";
     </style>
     <title>WritersPeak|Home</title>
   </head>
-  <body>
+  <body style="background-color:#000000">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
 
@@ -109,10 +109,10 @@ require "./dbconfig/conn.php";
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href=""> <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./lyrics/lyricwizard.php">Publish Lyric</a>
+        <a class="nav-link" href="./lyrics/lyricwizard.php"><i class="fas fa-upload"></i> Publish Lyrics</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -132,7 +132,7 @@ require "./dbconfig/conn.php";
     <li class="form-inline my-2 my-lg-0 nav-item dropdown">
     <form class="form-inline my-2 my-lg-0"  method="post">
       <input class="form-control mr-sm-2" name="search_query" autofocus required title="Query with @ to find Writers" type="search" placeholder="Search Writer's Peak" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit"><i class="fas fa-search"></i> Search</button>
       <?php
       if(isset($_POST['search']) && isset($_POST['search_query'])){
        $search_query = $_POST['search_query'];
@@ -154,21 +154,21 @@ require "./dbconfig/conn.php";
           <span class = "text-dark">
           <?php
 
-            if(isset($_SESSION['user'])){
+              if(isset($_SESSION['user'])){
 
                 echo '<div class = "nav-item-dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-                 echo $_SESSION['user']; echo '</a>';
+                  echo ' <i class="fas fa-user-circle"></i> '.$_SESSION['user'].'</a>';
                echo ' <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="./userops/profile.php">Profile</a>
-                  <a class="dropdown-item" href="./userops/check_master.php">Manage Account</a>
+                  <a class="dropdown-item" href="./userops/profile.php"><i class="fas fa-user-circle"></i>  Profile</a>
+                  <a class="dropdown-item" href="./userops/check_master.php"><i class="fas fa-tasks"></i>  Manage Account</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="./googlelogin/logout.php">Signout?</a>
+                  <a class="dropdown-item" href="./googlelogin/logout.php"><i class="fas fa-sign-out-alt"></i> Signout</a>
                 </div>';
                 ?></span>
 
            <?php }else{
-                echo "<a class='dropdown-item' href='./googlelogin/login.php'>Login</a> ";
+                echo "<a class='dropdown-item' href='./googlelogin/login.php'><i class='fas fa-sign-in-alt'></i> Login</a> ";
                    }
           ?>
         </a>

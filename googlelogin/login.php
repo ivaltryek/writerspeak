@@ -16,6 +16,8 @@ $loginurl = $gClient->createAuthUrl();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>WritersPeak|Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 
 
     <meta name="author" content="Mj" />
@@ -107,7 +109,7 @@ $loginurl = $gClient->createAuthUrl();
                 <div class="form-group">
                     <input type="submit" value="Sign In" name="local_login" class="btn btn-success"> &nbsp;
 
-                <input type = "button" class="btn btn-danger" name="google_login" onclick = "window.location = '<?php echo $loginurl; ?>' " value = "Log in with Google">
+                <button type = "button" class="btn btn-danger" name="google_login" onclick = "window.location = '<?php echo $loginurl; ?>' " >  Log In With   <i class="fab fa-google"></i> </button>
                 </div>
 
             </form>
