@@ -44,9 +44,9 @@ if (isset($_GET['like'], $_GET['lyric'])) {
             $current_likes =  $d['likes'];
             $current_dislikes = $d['dislike'];
         }
-        $update_query = "update `lyrics` set `likes` = ? ,`dislike` = ?";
+        $update_query = "update `lyrics` set `likes` = ? ,`dislike` = ? where `trimmedtitle` = ? ";
         $update_like = $conn->prepare($update_query);
-        $update_like->execute(array($current_likes + 1,$current_dislikes-1));
+        $update_like->execute(array($current_likes + 1,$current_dislikes-1,$_GET['lyric']));
         //$update_like->bindParam(':likes',)
 
         $sql_dislike_remover = "delete from `lyric_dislike` where `lyric_name` = ? and `disliked_by` = ?";

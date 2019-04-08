@@ -7,7 +7,13 @@ require "../components/customnav.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<?php
 
+    if(!loggedin()){
+        header("Location:../index.php");
+    }
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,18 +132,18 @@ if (isset($_GET['song'])) {
             <br><br> <sub><i>Written By @<u><a class="text-dark"><?php echo $author ?></a></u></i></sub>
         </p>
         <?php
-        // if (isset($_SESSION['last_visit']) && time() - $_SESSION['last_visit'] < 30) {
-        //     echo '<script language="javascript">';
-        //     echo 'alert("Wait 30 secs before you reload this page")';
-        //     echo '</script>';
-        // } else {
-        //     $_SESSION['last_visit'] = time();
-        //     $new_count = $views + 1;
-        //     $query = "update `lyrics` set `views` = ?";
-        //     $count_stmt = $conn->prepare($query);
-        //     $count_stmt->execute(array($new_count));
-        //     $view_data = $conn->query($query_select);
-        // }
+        if (isset($_SESSION['last_visit']) && time() - $_SESSION['last_visit'] < 30) {
+            echo '<script language="javascript">';
+            echo 'alert("Wait 30 secs before you reload this page")';
+            echo '</script>';
+        } else {
+            $_SESSION['last_visit'] = time();
+            $new_count = $views + 1;
+            $query = "update `lyrics` set `views` = ? where `trimmedtitle` = ?";
+            $count_stmt = $conn->prepare($query);
+            $count_stmt->execute(array($new_count,$_GET['song']));
+            $view_data = $conn->query($query_select);
+        }
         $get_likes = "select * from `lyrics` where `trimmedtitle` = ?";
         $perform = $conn->prepare($get_likes);
         $perform->execute(array($_GET['song']));

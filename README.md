@@ -17,7 +17,7 @@ MySQL Database Client
 
 ### Authors
 * **Meet Vasani** - *Functionalities and Database* - [Meet](https://github.com/mjvasani86)
-* **Kartikey Undaviya** - *Authentication and Admin* 
+* **Kartikey Undaviya** - *Authentication and Admin*
 
 #### Project Flow
 
@@ -27,22 +27,22 @@ MySQL Database Client
 ##### Table of Contents
 - [Index Page](#index)
     - [Login](#login)
-    - [Publish Lyrics](#publish)
+    - [Publish Lyrics](#publish-lyrics)
     - [Policy](#policy)
-    - [Top Posts](#posts)</br>
-    
-- [Manage Account](#manage) 
-    - [Deactivate](#deacv)
-    - [Profile](#profile)
-    - [Master Password](#master)
-    - [Manage Posts](#manageposts)
-    
+    - [Top Posts](#top-posts)</br>
 
-- [User Actions](#actions)
+- [Manage Account](#manage-account)
+    - [Deactivate](#deactivate-account)
+    - [Profile](#profile)
+    - [Master Password](#master-password)
+    - [Manage Posts](#manage-posts)
+
+
+- [User Actions](#user-actions)
     - [Comment](#comment)
-    - [Upvote/Downvote](#updown)
-    - [Report Infringement](#report)</br>
-    
+    - [Upvote/Downvote](#upvotedownvote)
+    - [Report Infringement](#report-infringementcopyright)</br>
+
 - [View Project Flow](#flow)</br>
 
 <a href = "index"></a>
@@ -112,7 +112,7 @@ User can express joy by commenting for the posts.
 <a href = "updown"></a>
 
 #### Upvote/Downvote
-User shall upvote/downvote posts 
+User shall upvote/downvote posts
 </br>
 
 <a href = "report"></a>
