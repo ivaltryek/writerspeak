@@ -28,3 +28,17 @@ MySQL Database Client
 - [Index Page](#index)
     - [Login](#login)
     - [Publish Lyrics](#publish)
+    - [Policy](#policy)
+    - [Top Posts](#posts)</br>
+    
+- [Manage Account](#manage) 
+    - [Deactivate](#deacv)
+    - [Profile](#profile)
+    - [Signout](#out)</br>
+    - [Manage Posts](#manageposts)
+    
+
+- [User Actions](#actions)
+    - [Comment](#comment)
+    - [Upvote/Downvote](#updown)
+    - [Report Infringement](#report)
