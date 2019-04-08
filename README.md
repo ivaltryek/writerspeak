@@ -25,3 +25,6 @@ MySQL Database Client
   The objective of this system to provide platform to those who are good writers and want to share their talent and ideas.
 
 ##### Table of Contents
+- [Index Page](#index)
+    - [Login](#login)
+    - [Publish Lyrics](#publish)
