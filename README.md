@@ -21,7 +21,7 @@ MySQL Database Client
 
 #### Project Flow
 
-##### Objective
+#### Objective
   The objective of this system to provide platform to those who are good writers and want to share their talent and ideas.
 
 ##### Table of Contents
@@ -41,4 +41,13 @@ MySQL Database Client
 - [User Actions](#actions)
     - [Comment](#comment)
     - [Upvote/Downvote](#updown)
-    - [Report Infringement](#report)
+    - [Report Infringement](#report)</br>
+    
+- [View Project Flow](#flow)</br>
+
+<a href = "index"></a>
+### Index
+</br>
+<a href = "login"></a>
+#### Login
+To Perform described all <a href = "actions">User Actions</a>, a user must logged in to access all features. A user can be logged in by gmail account or normal site signup/login.
