@@ -11,4 +11,12 @@ function loggedin(){
     }
 }
 
+function is_admin_logged_in(){
+    if(isset($_SESSION['admin'])){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 ?>

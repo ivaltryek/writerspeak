@@ -156,13 +156,22 @@ if (isset($_POST['local_login'])) {
 
         if ($stmt->rowCount() > 0) {
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $_SESSION['user'] = $username;
             foreach ($data as $row) {
                 $password_hash = $row['password'];
+                $is_superuser = $row['is_superuser'];
             }
             if (password_verify($password, $password_hash)) {
-                echo '<script language="javascript">';
-                echo 'alert("Logged In Successfully.!")';
-                echo '</script>';
+               // header("refresh:1;url=../index.php");
+               if($is_superuser){
+                $_SESSION['admin'] = $username;
+                echo '<script type="text/javascript"> window.location="../admin/adminindex.php";</script>';
+               }
+               echo '<script type="text/javascript"> window.location="../index.php";</script>';
+                // echo '<script language="javascript">';
+                // echo 'alert("Logged In Successfully.!")';
+                // echo '</script>';
+
             } else {
                 echo '<script language="javascript">';
                 echo 'alert("Wrong Credentials, Please try again.")';

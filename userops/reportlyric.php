@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="reported_song">Reported Song:</label>
-                        <input type="text" id="reported_song" name="reportedsong" value = "<?php echo $_GET['report']?>" class="form-control"  required/>
+                        <input type="text" id="reported_song" name="reportedsong" value = "<?php echo $_SESSION['reportsong']?>" class="form-control"  required/>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" name="reason" rows="10" required cols="45" placeholder="Reasons like Irrelevent, CopyRight Infringement, off the topic.... Write the reason"></textarea>
@@ -54,11 +54,11 @@
         //print_r($_POST);
     $report_query = "insert into `reports` (`id`,`reported_song`,`reported_by`,`reported_reason`) values (DEFAULT,?,?,?)";
     $stmt = $conn->prepare($report_query);
-    if($stmt->execute(array($_POST['reportedsong'],$_POST['reportedby'],$_POST['reason']))){
+    if($stmt->execute(array($_SESSION['reportsong'],$_POST['reportedby'],$_POST['reason']))){
                 echo '<script language="javascript">';
                 echo 'alert("Thank You! For your valuable response")';
                 echo '</script>';
-                header("Location:../index.php");
+                header("refresh:1;url=../index.php");
                 exit();
     }else{
         //echo $stmt->errorInfo();

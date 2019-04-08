@@ -4,6 +4,7 @@ require "../components/errorfunc.php";
 require "../components/banner.php";
 require "../components/session.php";
 require "../components/customnav.php";
+$_SESSION['reportsong'] = $_GET['song'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,7 +156,7 @@ if (isset($_GET['song'])) {
         ?>
         <span class="glyphicon glyphicon-chevron-up"></span>
         <u><a class="text-dark" href="#top" style="padding-left:20px"><i class="fas fa-arrow-circle-up"></i></i></a></b></u>
-        <u><a style="padding-left:210px" class="text-dark" href="../userops/reportlyric.php?report=<?php echo $_GET['song']; ?>"><i class="fas fa-flag"></i> Report Lyrics</a></u>
+        <u><a style="padding-left:210px" class="text-dark" href="../userops/reportlyric.php?report=<?php echo $_SESSION['reportsong']; ?>"><i class="fas fa-flag"></i> Report Lyrics</a></u>
         <u><a style="padding-left:150px" class="text-dark" href="../comment/comment.php"><i class="fas fa-comments"></i> Comment</a></u><br>
         <span style="font-size:18px; padding-left:20px"><i class="far fa-eye"></i> <?php echo $views ?></span>
         <?php
