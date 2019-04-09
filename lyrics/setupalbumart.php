@@ -73,7 +73,7 @@
                     echo "OOps,Please try again later";
                 }
             } else {
-                echo "An error occurred somewhere. Try again or contact the admin";
+                echo "An error occurred somewhere. The reasons could be large photo size >1MB, The file extension isn't allowed.";
             }
         } else {
             foreach ($errors as $error) {

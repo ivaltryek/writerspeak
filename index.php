@@ -115,18 +115,10 @@ require "./dbconfig/conn.php";
         <a class="nav-link" href="./lyrics/lyricwizard.php"><i class="fas fa-upload"></i> Publish Lyrics</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <a class="nav-link" href="./userops/top_posts.php">Top Posts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">Policy</a>
+        <a class="nav-link " href="./userops/policy.php">Policy</a>
       </li>
     </ul>
     <li class="form-inline my-2 my-lg-0 nav-item dropdown">
