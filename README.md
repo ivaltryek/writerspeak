@@ -16,8 +16,7 @@ MySQL Database Client
 * [MySQL](https://www.mysql.com/) - The Database engine used
 
 ### Authors
-* **Meet Vasani** - *Functionalities and Database* - [Meet](https://github.com/mjvasani86)
-* **Kartikey Undaviya** - *Authentication and Admin*
+* **Meet Vasani** - [Meet](https://github.com/mjvasani86)
 
 #### Project Flow
 
