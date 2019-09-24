@@ -15,7 +15,7 @@ MySQL Database Client
 * [PHP](https://www.php.net/) - The Scripting language used
 * [MySQL](https://www.mysql.com/) - The Database engine used
 
-### Authors
+### Author
 * **Meet Vasani** - [Meet](https://github.com/iammeliodas)
 
 #### Project Flow
